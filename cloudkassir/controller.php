@@ -32,6 +32,7 @@ class Cashregister_Cloudkassir_Controller extends Cashregister_Controller
         $aReceiptData = array(
             'Items' => array(),
             'taxationSystem' => Core_Array::get($aConfig[$this->_oCashregister->id], 'taxation_system', '0'),
+	    'calculationPlace'=>'www.'.$_SERVER['SERVER_NAME'],
             'email' => $oShop_Order->email,
             'phone' => $this->sanitizePhoneNumber($oShop_Order->phone)
         );
@@ -39,7 +40,7 @@ class Cashregister_Cloudkassir_Controller extends Cashregister_Controller
         $aVat = array(
             0 => '',
             10 => '10',
-            18 => '18'
+            20 => '20'
         );
 
         $aItems = $this->getOrderItems();
